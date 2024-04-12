@@ -36,7 +36,7 @@ const Gears = () => {
               {gearsData.map(
                 (ele) =>
                   ele.type === type && (
-                    <Typography>
+                    <Typography key={ele + type}>
                       ‧ {ele.name}
                       <Condition condition={!!ele.link}>
                         {'  -  '}
