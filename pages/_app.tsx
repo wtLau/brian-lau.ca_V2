@@ -2,6 +2,7 @@ import 'styles/global.css'
 
 import { MDXProvider } from '@mdx-js/react'
 import { CssBaseline } from '@mui/material'
+import { Provider as NextAuthProvider } from 'next-auth/client'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect } from 'react'
@@ -32,16 +33,30 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head />
-      <ThemeCustomProvider theme={theme}>
-        <CssBaseline />
-        <AppLayout>
-          <MDXProvider components={MDXComponents}>
-            <Component {...pageProps} />
-          </MDXProvider>
-        </AppLayout>
-      </ThemeCustomProvider>
+      <NextAuthProvider session={pageProps.session}>
+        <ThemeCustomProvider theme={theme}>
+          <CssBaseline />
+          <AppLayout>
+            <MDXProvider components={MDXComponents}>
+              <Component {...pageProps} />
+            </MDXProvider>
+          </AppLayout>
+        </ThemeCustomProvider>
+      </NextAuthProvider>
     </>
   )
 }
+
+// Only uncomment this method if you have blocking data requirements for
+// every single page in your application. This disables the ability to
+// perform automatic static optimization, causing every page in your app to
+// be server-side rendered.
+//
+// MyApp.getInitialProps = async (appContext) => {
+//   // calls page's `getInitialProps` and fills `appProps.pageProps`
+//   const appProps = await App.getInitialProps(appContext);
+//
+//   return { ...appProps }
+// }
 
 export default MyApp
