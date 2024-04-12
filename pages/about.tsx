@@ -1,5 +1,4 @@
 import { Typography, Button, Grid } from '@mui/material'
-import { useSession } from 'next-auth/client'
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 
@@ -10,9 +9,8 @@ import { companyData } from '@data/companyData'
 import { skillsData, TSkills } from '@data/skillsData'
 
 const About = () => {
-  const [session] = useSession()
   const [skills, setSkills] = useState<TSkills[]>([])
-  const userName = session?.user?.name || 'stranger'
+  const userName = 'stranger'
 
   useEffect(() => {
     setSkills(skillsData)
@@ -41,8 +39,8 @@ const About = () => {
           />
           <Grid item xs={12}>
             <Typography paragraph>
-              {session && `Hi, ${userName}.`} My name is Brian, and I am
-              currently living in North Vancouver, Canada.
+              Hi, ${userName}. My name is Brian, and I am currently living in
+              North Vancouver, Canada.
             </Typography>
 
             <Typography paragraph>

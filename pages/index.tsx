@@ -1,7 +1,6 @@
 import { Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { styled } from '@mui/material/styles'
-import { useSession } from 'next-auth/client'
 import { FC } from 'react'
 
 import { Link } from '@components/ui'
@@ -10,8 +9,7 @@ const StyledGrid = styled(Grid)({
 })
 
 const Index: FC = () => {
-  const [session] = useSession()
-  const userName = session?.user?.name || 'stranger'
+  const userName = 'stranger'
   return (
     <StyledGrid container justifyContent='center' alignItems='center'>
       <Grid container spacing={8} alignContent='center'>
