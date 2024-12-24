@@ -2,7 +2,7 @@
 
 Welcome! This is my personal app where fun things get built~
 
-[Live Website Link: www.brian-lau.ca](https://www.brian-lau.ca)
+[Live Website Link: [www.brian-lau.ca](https://brian-lau-v2.vercel.app/)](https://brian-lau-v2.vercel.app/)
 
 
 [![Labeler](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml/badge.svg)](https://github.com/wtLau/Portfolio-App/actions/workflows/labeler.yml)
